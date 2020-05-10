@@ -1,9 +1,10 @@
 import telebot
+import ast
 from preprocess_data import read_predata
 from input_suggestion import title_suggestion
 from cosine_similarity import recommendations
 
-token = "<token>"
+token = "1268385140:AAEuiAil9oFfR-kntdc1O4V_clrQz0SUznk"
 bot = telebot.TeleBot(token)
 save_one = []
 
@@ -29,7 +30,7 @@ def query_handler_1(query):
 @bot.callback_query_handler(lambda query: query.data == "info")
 def query_handler_2(query):
     bot.edit_message_reply_markup(query.message.chat.id, query.message.message_id)
-    answer = "Final Project Advanced Information Retrieval \n\n"\
+    answer = "Final Project Advanced Information Retrieval (AIR) 2020 \n\n"\
              "project *'BenMovie Telegram Bot'* \n\n"\
              "_Note_: \n"\
              "This is BenMovie bot, a content-based movie recommender, " \
@@ -80,7 +81,6 @@ def title_handler(query):
     if data.startswith('*'):
         markups = telebot.types.InlineKeyboardMarkup()
         for idx in result:
-            # print(i, title)
             markups.add(telebot.types.InlineKeyboardButton(text='{} ({})'.format(read_predata()['movie'].values[idx], read_predata()['year'].values[idx]),
                                                            callback_data=str(read_predata()['movie'].values[idx])))
         reply = str("Top 5 recommended movies to *{}* are:".format(movie_name))
