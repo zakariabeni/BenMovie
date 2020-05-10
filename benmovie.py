@@ -1,10 +1,9 @@
 import telebot
-import ast
 from preprocess_data import read_predata
 from input_suggestion import title_suggestion
 from cosine_similarity import recommendations
 
-token = "1268385140:AAEuiAil9oFfR-kntdc1O4V_clrQz0SUznk"
+token = "<token>"
 bot = telebot.TeleBot(token)
 save_one = []
 
