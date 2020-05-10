@@ -32,8 +32,8 @@ def query_handler_2(query):
     answer = "Final Project Advanced Information Retrieval \n\n"\
              "project *'BenMovie Telegram Bot'* \n\n"\
              "_Note_: \n"\
-             "Movie datasets were obtained from IMDb with a Metascore flag, a total vote of more than 15000, " \
-             "and were released at least after 1990s."
+             "This is BenMovie bot, a content-based movie recommender, " \
+             "using a movie dataset from IMDb website that was released from 1990s."
     markup = telebot.types.InlineKeyboardMarkup()
     markup.row_width = 1
     markup.add(telebot.types.InlineKeyboardButton("Back", callback_data="back"))
