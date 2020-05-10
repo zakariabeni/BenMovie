@@ -1,5 +1,5 @@
 import telebot
-import ast
+
 from preprocess_data import read_predata
 from input_suggestion import title_suggestion
 from cosine_similarity import recommendations
