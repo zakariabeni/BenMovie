@@ -26,7 +26,7 @@ def recommendations(movie_user_likes):
     # print("Top k similar movies to " + movie_user_likes + " are:\n")
     for element in sorted_similar_movies:
         movie_rec_id.append(element[0])
-        # print(get_title_from_index(element[0]))
+        # print(get_title_from_index(element[0]), 'similarity: ', element[1])
         i = i + 1
         if i > 5:
             break
