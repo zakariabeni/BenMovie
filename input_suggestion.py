@@ -127,6 +127,7 @@ def title_suggestion(wildcard):
 
             for i in sorted(movie_res.items(), key=lambda kv: (kv[1], kv[0]), reverse=True)[:top_k]:
                 input_suggest.append(i[0])
+                print(i[0], '- votes: ', i[1])
 
         return input_suggest
 
@@ -135,10 +136,12 @@ def title_suggestion(wildcard):
 
     if result != []:
         output = result
+        print('proceed directly as a wildcard')
     elif result == [] and result2 != []:
         output = result2
+        print("fixed by Norvig's spellchecker from {} to {}".format(wildcard, new_wildcard))
     else:
         output = 0
-        # print("Sorry, nothing to suggest! \nTry another input query!")
+        print("Sorry, nothing to suggest! \nTry another input query!")
 
     return output
