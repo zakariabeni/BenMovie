@@ -1,11 +1,15 @@
 # Library
 from preprocess_data import read_predata
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity, linear_kernel
 
-count = CountVectorizer(analyzer='word', stop_words='english')
-movies_matrix = count.fit_transform(read_predata()['list_bag'])
-cosine_sim = cosine_similarity(movies_matrix)
+# count = CountVectorizer(analyzer='word', stop_words='english')
+score = TfidfVectorizer(analyzer='word', stop_words='english')
+# movies_matrix = count.fit_transform(read_predata()['list_bag'])
+movies_matrix = score.fit_transform(read_predata()['list_bag'])
+
+# cosine_sim = cosine_similarity(movies_matrix)
+cosine_sim = linear_kernel(movies_matrix, movies_matrix)
 
 
 def get_title_from_index(index):
